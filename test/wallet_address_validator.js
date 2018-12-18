@@ -382,6 +382,18 @@ describe('WAValidator.validate()', function () {
             valid('xrb_1q79ahdr36uqn38p5tp5sqwkn73rnpj1k8obtuetdbjcx37d5gahhd1u9cuh', 'nano');
             valid('nano_1q79ahdr36uqn38p5tp5sqwkn73rnpj1k8obtuetdbjcx37d5gahhd1u9cuh', 'nano');
         });
+
+        it('should return true for correct citycoin addresses', function () {
+            valid('CGdxNqvBa74U34saF18G8bUqvWxEGcGsza', 'citycoin');
+            valid('CVP7YC1M5yuDY4r9pUpAzMSHNttFXuyBjJ', 'citycoin');
+            valid('CUKFiv4Dxjpr1R8ohZ4axkcwb2y5tJhjd4', 'citycoin');
+            valid('CV99Vd6LKGuzkQRmSqok8mTfgKyykJjRxj', 'citycoin');
+            valid('CJeonjYZfi6DDeo6Xw6Z1ogMgQH7yn5cxD', 'CITY');
+            valid('ThBKyPBor64MtfW2beYprhgqnAM9VKYAYV', 'citycoin', 'testnet');
+            valid('TeALmHhir3tNxeugoNX58dYkjAihtmnuo6', 'CITY', 'testnet');
+            valid('Ttx26Ds5m2u8Zg9RPbPLu3WU7whzMSndaC', 'CITY', 'testnet');
+            valid('TwE2Cris4fB1YDaG6BLEQKRjyTRHHRxRTY', 'CITY', 'testnet');
+        });
     });
 
     describe('invalid results', function () {
@@ -594,6 +606,10 @@ describe('WAValidator.validate()', function () {
             invalid('nano_1f5e4w33ndqbkx4bw5jtp13kp5xghebfxcmw9hdt1f7goid1s4373w6tjdgu', 'nano');
             invalid('xrb_1111111112111111111111111111111111111111111111111111hifc8npp', 'nano');
             invalid('nano_111111111111111111111111111111111111111111111111111hifc8npp', 'nano');
+        });
+
+        it('should return false for incorrect citycoin addresses', function () {
+            commonTests('citycoin');
         });
     });
 });
